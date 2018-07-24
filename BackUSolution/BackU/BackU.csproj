@@ -319,6 +319,12 @@
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2-Fluid.cshtml" />
     <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\_Layout.cshtml" />
+    <Content Include="Views\HomeWithSideBar.cshtml" />
+    <Content Include="Views\Content.cshtml" />
+    <Content Include="Views\HomePage.cshtml" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\SimpleContentPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
