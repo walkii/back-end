@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TaskItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterU.cshtml";
+	 //var parentTitle = Model.Parent.HasValue("titleObjectiveItem")? Model.Parent.title : Model.Parent.Name;
+}
+<div id="main-container">
+	<div id="main" class="wrapper clearfix">
+		<section>
+		    <h2>@CurrentPage.Parent.titleObjectiveItem</h2>
+			<h2>@Umbraco.Field("titleTaskItem")</h2>
+		    @Umbraco.Field("descriptionTaskItem")
+		    @if (@CurrentPage.GetPropertyValue<bool>("checkTaskItem")){
+    		     <img src="/media/1001/check.png" alt="check icon" style="width:128px;height:128px;"> 
+		    }
+		    else{
+    		      <img src="/media/1003/uncheck.png" alt="uncheck icon" style="width:128px;height:128px;"> 
+		    }
+
+		 
+		</section>	
+	</div> <!-- #main -->
+</div> <!-- #main-container -->

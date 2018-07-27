@@ -1,0 +1,16 @@
+{
+  "id": "571f7b61-e3e4-4fe6-b551-511e35835646",
+  "name": "Send template email to julien_denoulet@orange.fr",
+  "form": "ed1f7005-f893-47cf-a61f-6097cf736b99",
+  "active": true,
+  "workflowTypeId": "17c61629-d984-4e86-b43b-a8407b3efea9",
+  "executesOn": "Submitted",
+  "settings": {
+    "Email": "julien_denoulet@orange.fr",
+    "SenderEmail": "",
+    "Subject": "The Form '{form_name}' was submitted",
+    "RazorViewFilePath": "Forms/Emails/Example-Template.cshtml",
+    "Attachment": ""
+  },
+  "sortOrder": 1
+}

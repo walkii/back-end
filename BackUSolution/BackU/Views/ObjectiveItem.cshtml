@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ObjectiveItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "MasterU.cshtml";
+}
+<div id="main-container">
+	<div id="main" class="wrapper clearfix">
+		<section>
+		    <div class="shEdit">
+		        @Umbraco.RenderMacro("checkObj")
+		      <div id="descriptionfield">
+		           @Umbraco.Field("descriptionObjectiveItem")
+		      </div>
+		       
+			  <div class="button" id="editButton"> <button type="button" class="btn btn-primary Edit">Edit</button> </div>
+			  </div>
+			  <div class="shForm">
+			     @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid="ed1f7005-f893-47cf-a61f-6097cf736b99", FormTheme="bootstrap3-horizontal", ExcludeScripts="0"})
+			  </div>
+		    
+		    <div class="shContent">
+		    <h2>My task</h2>
+		    @Umbraco.RenderMacro("listTask")
+		    </div>
+		</section>	
+	</div> <!-- #main -->
+</div> <!-- #main-container -->

@@ -1,0 +1,14 @@
+{
+  "id": "241961a2-f739-4f1b-98f6-7aa5d0bef1c1",
+  "name": "Save objective",
+  "form": "ed1f7005-f893-47cf-a61f-6097cf736b99",
+  "active": true,
+  "workflowTypeId": "89fb1e31-9f36-4e08-9d1b-af1180d340db",
+  "executesOn": "Submitted",
+  "settings": {
+    "Fields": "{\"doctype\":\"objectiveItem\",\"properties\":[{\"id\":\"descriptionObjectiveItem\",\"value\":\"Description Objective Item\",\"$$hashKey\":\"6IK\",\"field\":\"16608a48-d19b-44f3-9097-16604362d913\"},{\"id\":\"titleObjectiveItem\",\"value\":\"Title Objective Item\",\"$$hashKey\":\"6IL\",\"field\":\"829c467b-559a-4274-c9c4-cedaccb87577\"}]}",
+    "Publish": "True",
+    "RootNode": "$current"
+  },
+  "sortOrder": 0
+}
