@@ -11,5 +11,8 @@
         document.getElementById("16608a48-d19b-44f3-9097-16604362d913").value = description;
         $('.shForm').show();
         $('.shContent').hide();
+        var idPage = document.getElementById("IdPage").innerHTML;
+        document.getElementById("9865fc7d-75a6-457c-801f-d34a60e779f5").value = idPage;
+        $('#20bc5bcd-aea3-401f-a259-88f60ada801f').hide();
     });
 });

@@ -1,27 +1,48 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ObjectiveItem>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
-@{
-	Layout = "MasterU.cshtml";
-}
-<div id="main-container">
-	<div id="main" class="wrapper clearfix">
-		<section>
-		    <div class="shEdit">
-		        @Umbraco.RenderMacro("checkObj")
-		      <div id="descriptionfield">
-		           @Umbraco.Field("descriptionObjectiveItem")
-		      </div>
-		       
-			  <div class="button" id="editButton"> <button type="button" class="btn btn-primary Edit">Edit</button> </div>
-			  </div>
-			  <div class="shForm">
-			     @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid="ed1f7005-f893-47cf-a61f-6097cf736b99", FormTheme="bootstrap3-horizontal", ExcludeScripts="0"})
-			  </div>
-		    
-		    <div class="shContent">
-		    <h2>My task</h2>
-		    @Umbraco.RenderMacro("listTask")
-		    </div>
-		</section>	
-	</div> <!-- #main -->
-</div> <!-- #main-container -->
+    @using ContentModels = Umbraco.Web.PublishedContentModels;
+@using Umbraco.Forms.Mvc.DynamicObjects
+@using Umbraco.Forms.Core
+@using Umbraco.Forms.Data.Storage
+@using Umbraco.Forms.Core.Services
+     
+    @{
+    Layout = "MasterU.cshtml";
+     FormStorage fs = new FormStorage();
+    Form f = fs.GetForm(new Guid("ed1f7005-f893-47cf-a61f-6097cf736b99"));
+    fs.Dispose();
+    RecordStorage r = new RecordStorage();
+    var records = r.GetAllRecords(f);
+    r.Dispose();
+    var boolean=0;
+    var myPage = Umbraco.Content(@CurrentPage.Id);
+    }
+    
+    <div id="main-container">
+        <div id="main" class="wrapper clearfix">
+            <section>
+                <div class="shEdit">
+                  
+                    @foreach(var rec in records)
+                    {
+                        if(rec.GetRecordField(new Guid("9865fc7d-75a6-457c-801f-d34a60e779f5")).Values[0].ToString() == myPage.Id.ToString() && boolean==0){
+                            boolean=1;
+                            <h4 id="titleObjectiveItem"> @rec.GetRecordField(new Guid("829c467b-559a-4274-c9c4-cedaccb87577")).Values[0]</h4>
+                            <div id="descriptionfield">
+                            <h4> @rec.GetRecordField(new Guid("16608a48-d19b-44f3-9097-16604362d913")).Values[0]</h4>
+                            </div>
+                        }
+                    }
+
+                    <div class="button" id="editButton"> <button type="button" class="btn btn-primary Edit">Edit</button> </div>
+                </div>
+                <div class="shForm">
+                    @Umbraco.RenderMacro("renderUmbracoForm", new {FormGuid="ed1f7005-f893-47cf-a61f-6097cf736b99", FormTheme="bootstrap3-horizontal", ExcludeScripts="0"})
+                </div>
+                <div class="shContent">
+                    <h2>My task</h2>
+                    @Umbraco.RenderMacro("listTask")
+                </div>
+            </section>
+
+        </div> <!-- #main -->
+    </div> <!-- #main-container -->

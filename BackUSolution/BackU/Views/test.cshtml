@@ -1,0 +1,37 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.Test>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using Umbraco.Forms.Mvc.DynamicObjects
+@using Umbraco.Forms.Core
+@using Umbraco.Forms.Data.Storage
+@using Umbraco.Forms.Core.Services
+
+@{
+	Layout = "MasterU.cshtml";
+
+    FormStorage fs = new FormStorage();
+    Form f = fs.GetForm(new Guid("ed1f7005-f893-47cf-a61f-6097cf736b99"));
+    fs.Dispose();
+    RecordStorage r = new RecordStorage();
+    var records = r.GetAllRecords(f);
+    r.Dispose();
+    var i=0;
+    var test=@CurrentPage.Id;
+    var myPage = Umbraco.Content(@CurrentPage.Id);
+    var boolean=0;
+    
+}
+<h1>@Umbraco.Field("titleTest")</h1>
+<div>
+
+@foreach(var rec in records)
+{
+        if(rec.GetRecordField(new Guid("9865fc7d-75a6-457c-801f-d34a60e779f5")).Values[0].ToString() == myPage.Id.ToString() && boolean==0){
+        boolean=1;
+        <h4> rec.GetRecordField(new Guid("829c467b-559a-4274-c9c4-cedaccb87577")).Values[0]</h4>
+        <h4> rec.GetRecordField(new Guid("16608a48-d19b-44f3-9097-16604362d913")).Values[0]</h4>
+        }
+}
+
+  
+
+</div>

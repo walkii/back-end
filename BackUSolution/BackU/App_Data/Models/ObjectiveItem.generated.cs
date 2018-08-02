@@ -55,6 +55,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// test
+		///</summary>
+		[ImplementPropertyType("test")]
+		public Umbracian.FrontendEditing.FrontendEditingModel Test
+		{
+			get { return this.GetPropertyValue<Umbracian.FrontendEditing.FrontendEditingModel>("test"); }
+		}
+
+		///<summary>
 		/// Title Objective Item
 		///</summary>
 		[ImplementPropertyType("titleObjectiveItem")]
